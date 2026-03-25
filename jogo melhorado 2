@@ -6,9 +6,7 @@ programa {
         inteiro ataque_especial_player = 2            
         inteiro vida_boss = 300               
         inteiro ataque_boss = 30         
-        
         inteiro pocoes = 2 
-        
         inteiro opcao                
         
         enquanto (vida_player > 0 e vida_boss > 0) {                
