@@ -1,0 +1,71 @@
+programa {                
+    inclua biblioteca Util --> u                
+    funcao inicio() {                
+        inteiro vida_player = 200                
+        inteiro ataque_player = 20   
+        inteiro ataque_especial_player = 2            
+        inteiro vida_boss = 300               
+        inteiro ataque_boss = 30         
+        
+        inteiro pocoes = 2 
+        
+        inteiro opcao                
+        
+        enquanto (vida_player > 0 e vida_boss > 0) {                
+            escreva("\n--- Rodada ---\n")                
+            escreva("Minha vida: ", vida_player, " | Vida do boss: ", vida_boss, "\n")
+            escreva("Inventário: ", pocoes, " Poção(ões) de Vida\n")
+            
+            escreva("1) Atacar\n")   
+            escreva("2)Ataque especial\n")
+            escreva("3) Curar (Sorte)\n")
+            escreva("4) Usar Poção (+50 Vida)\n")
+            escreva("Escolha sua ação: ")                
+            leia(opcao)                
+            
+            se (opcao == 1) {                
+                vida_boss = vida_boss - ataque_player                
+                escreva("Você atacou o boss e causou ", ataque_player, " de dano!\n")                
+            }   
+            se(opcao == 2){
+              se (ataque_especial_player > 0) {
+                vida_boss = vida_boss - 50
+                escreva("Você atacou o boss e causou 50 de dano!\n")
+                ataque_especial_player -= 1
+              }
+              senao {
+                escreva("Você não possui mais ataques especiais! \n")
+              }
+            }
+
+            senao se (opcao == 3) {                
+                vida_player = vida_player + 10                
+                escreva("Você se curou! Vida atual: ", vida_player, "\n")                
+            }
+            senao se (opcao == 4) {
+                se (pocoes > 0) {
+                    vida_player = vida_player + 50
+                    pocoes = pocoes - 1
+                    escreva("Você usou uma poção! Vida: ", vida_player, " | Poções restantes: ", pocoes, "\n")
+                } senao {
+                    escreva("Você não tem mais poções!\n")
+                }
+            }                
+            senao {                
+                escreva("Opção inválida!\n")                
+            }                
+            
+            se (vida_boss > 0) {                
+                vida_player = vida_player - ataque_boss                
+                escreva("O boss te atacou e causou ", ataque_boss, " de dano!\n")                
+            }                
+        }                
+        
+        se (vida_boss <= 0) {                
+            escreva("\nParabéns! Você venceu o boss!\n")                
+        }                
+        senao {                
+            escreva("\nVocê foi derrotado pelo boss...\n")                
+        }                
+    }                
+}
