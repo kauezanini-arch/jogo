@@ -15,7 +15,7 @@ programa {
             escreva("Inventário: ", pocoes, " Poção(ões) de Vida\n")
             
             escreva("1) Atacar\n")   
-            escreva("2)Ataque especial\n")
+            escreva("2) Ataque especial\n")
             escreva("3) Curar (Sorte)\n")
             escreva("4) Usar Poção (+50 Vida)\n")
             escreva("Escolha sua ação: ")                
